@@ -41,6 +41,12 @@ ifeq ($(UCLINUX),1)
 CPPFLAGS			+= -D__UCLIBC__ -DUCLINUX
 endif
 
+ifeq ($(ANDROID),1)
+CFLAGS				+= -include $(abs_top_srcdir)/include/android_ndk_workarounds.h
+LDFLAGS				+= -L$(top_builddir)/lib/android_libpthread
+LDFLAGS				+= -L$(top_builddir)/lib/android_librt
+endif
+
 MAKE_TARGETS			?= $(notdir $(patsubst %.c,%,$(wildcard $(abs_srcdir)/*.c)))
 
 MAKE_TARGETS			:= $(filter-out $(FILTER_OUT_MAKE_TARGETS),$(MAKE_TARGETS))

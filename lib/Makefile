@@ -28,6 +28,10 @@ CFLAGS			+= -I.
 
 FILTER_OUT_LIBSRCS	:= mount_utils.c
 
+ifneq ($(ANDROID),1)
+FILTER_OUT_DIRS		:= android_libpthread android_librt
+endif
+
 LIB			:= libltp.a
 
 pc_file			:= $(DESTDIR)/$(datarootdir)/pkgconfig/ltp.pc
