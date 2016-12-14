@@ -250,6 +250,11 @@ uClinux Users
 Specify UCLINUX=1 when calling make; -DUCLINUX=1 use is deprecated and highly
 discouraged.
 
+Android Users
+-------------
+Specify ANDROID=1 when calling make. Many tests which would otherwise work are
+currently not built because they share a directory with an incompatible test.
+
 Variables in Makefile
 ----------------------
 
