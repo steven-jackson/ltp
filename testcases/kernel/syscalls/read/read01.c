@@ -120,7 +120,7 @@
 /*
  * Set READ_BLOCK_SIZE to the block size of the system.
  */
-#ifdef __linux__
+#ifdef DEV_BSIZE
 #define READ_BLOCK_SIZE DEV_BSIZE
 #else
 #define READ_BLOCK_SIZE BSIZE

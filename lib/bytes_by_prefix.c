@@ -58,13 +58,13 @@
  *
  ****************************************************************************/
 
-#if CRAY
-#define B_MULT	BSIZE		/* block size */
-#elif sgi
-#define B_MULT	BBSIZE		/* block size */
-#elif defined(__linux__) || defined(__sun) || defined(__hpux)
-#define B_MULT	DEV_BSIZE	/* block size */
-#elif defined(_AIX)
+#ifdef BSIZE
+#define B_MULT BSIZE
+#elif defined(BBSIZE)
+#define B_MULT BBSIZE
+#elif defined(DEV_BSIZE)
+#define B_MULT DEV_BSIZE
+#elif defined(UBSIZE)
 #define B_MULT UBSIZE
 #endif
 

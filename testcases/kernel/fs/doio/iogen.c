@@ -71,7 +71,7 @@
 #endif
 
 #ifndef BSIZE
-#ifdef linux
+#ifdef DEV_BSIZE
 #define BSIZE DEV_BSIZE
 #else
 #define BSIZE 512
