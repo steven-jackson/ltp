@@ -122,8 +122,11 @@
  */
 #ifdef DEV_BSIZE
 #define READ_BLOCK_SIZE DEV_BSIZE
-#else
+#elif defined(BSIZE)
 #define READ_BLOCK_SIZE BSIZE
+#else
+#warning Unable to find a value for READ_BLOCK_SIZE, defaulting to 512
+#define READ_BLOCK_SIZE 512
 #endif
 
 void setup();

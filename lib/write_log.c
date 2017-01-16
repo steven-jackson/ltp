@@ -76,8 +76,11 @@
 #ifndef BSIZE
 #ifdef DEV_BSIZE
 #define BSIZE DEV_BSIZE
-#else
+#elif defined(BBSIZE)
 #define BSIZE BBSIZE
+#else
+#warning Unable to find a value for BSIZE, defaulting to 512
+#define BSIZE 512
 #endif
 #endif
 
